@@ -18,23 +18,34 @@ Viewing the movie list in kodi isn't affected by this organization.
 
 Microsoft windows command line example:
 
-  msxsl 2015-06-01\videodb.xml -o backup.xml Videodb.Additions.xslt newer="2015-06-08\videodb.xml" backup="j:\backup"
+  msxsl 2015-06-01\videodb.xml -o backup.xml Videodb.Reorganize.xslt newer="2015-06-08\videodb.xml" backup="j:\backup"
 
-  msxsl parameters to use this script:
-  1. The file name of the older kodi videodb document ( example: 2015-06-01\videodb.xml )
-  2. Output file name for the copy script ( example: -o backup.xml )
-  3. The file name of the newer kodi videodb document ( example: newer="2015-06-08\videodb.xml" )
-  4. A path where backups go ( backup="j:\backup" )
+msxsl parameters to use this script:
+  * The file name of the older kodi videodb document ( example: 2015-06-01\videodb.xml )
+  * Output file name for the copy script ( example: -o backup.xml )
+  * The file name of the newer kodi videodb document ( example: newer="2015-06-08\videodb.xml" )
+  * A path where backups go ( backup="j:\backup" )
 
-  Notes:
+Notes:
   * This example uses the microsoft xsl interpreter named 'msxsl'. There are many other interpreters that this script
     will probably work with. If you use another interpreter the command line will need to be changed.
   * The first document should be produced chronologically before the newer second document.
   * The copy script is an xml document used by the cpXmlCmd application.
-  * Individual movies will be placed in a separate directory for each movie in the backup.
   * uses Version 1 of the videodb.xml file.
 
 Linux example Using xalan:
-  xalan 2015-06-01/videodb..xml -p newer "2015-06-08/videodb.xml" -p backup "/mnt/backup" Videodb.Additions.xslt -o backup.xml
+  xalan 2015-06-01/videodb.xml -p newer "2015-06-08/videodb.xml" -p backup "/mnt/backup" Videodb.Reorganize.xslt -o backup.xml
+
+xalan parameters to use this script:
+  * The file name of the older kodi videodb document ( example: 2015-06-01/videodb.xml )
+  * The file name of the newer kodi videodb document ( example: -p newer="2015-06-08/videodb.xml" )
+  * A path where backups go ( -p backup="/mnt/backup" )
+  * Output file name for the copy script ( example: -o backup.xml )
+
+Notes:
+  * This example uses the xalan xsl interpreter'
+  * The first document should be produced chronologically before the newer second document.
+  * The copy script is an xml document used by the cpXmlCmd application.
+  * uses Version 1 of the videodb.xml file.
 
 written by Jay Sprenkle
